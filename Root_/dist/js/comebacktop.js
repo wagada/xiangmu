@@ -1,0 +1,1 @@
+"use strict";function comebacktop(n){var c={};Object.assign(c,n),document.getElementById(c.ele).onclick=function(){var n=window.scrollY,c=setInterval(function(){(n-=50)<=0&&clearInterval(c),window.scrollTo(0,n)},30)}}

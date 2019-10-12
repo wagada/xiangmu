@@ -1,0 +1,1 @@
+"use strict";for(var catalogslist=document.querySelector(".catalogs-list"),items=document.querySelectorAll(".catalogs-list .item"),_loop=function(i){items[i].index=i,items[i].onclick=function(){var t=items[i].index+1;location.href="list.html?list"+t}},i=0;i<items.length;i++)_loop(i);

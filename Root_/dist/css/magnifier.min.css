@@ -1,0 +1,1 @@
+.magnifier{position:relative}.magnifier .big-image,.magnifier .slider{position:absolute;display:none;left:0;top:0}.magnifier img{width:100%;height:100%}.magnifier .slider{background-color:rgba(0,0,0,.5);cursor:crosshair}.magnifier .big-image{box-shadow:0 0 3px #000;background-position:0 0;background-repeat:no-repeat}

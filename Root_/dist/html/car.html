@@ -1,0 +1,50 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta http-equiv="X-UA-Compatible" content="ie=edge"><title>car</title><link rel="stylesheet" href="../css/font-awesome-4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="../css/base.css"><link rel="stylesheet" href="../css/car.css"></head><body><div class="w"><div id="topads"></div><div class="site-nav"><div class="wrap clearfix"><ul class="left"><li>欢迎光临易果生鲜！</li><li class="city clearfix"><div class="city-sz">配送至</div><div class="city-tit">广州市 <i class="fa fa-angle-down" aria-hidden="true"></i></div></li><li><img src="../images/main/notice.png" alt=""> <a href="###">温馨提醒</a></li></ul><ul class="right"><li class="apt"><img src="../images/main/招聘1.png" alt=""> <a href="###">人才招聘</a></li><li class="apt"><img src="../images/main/aptitudeicon.png" alt=""> <a href="###">营业资质</a></li><li class="lipin"><a href="###"><i></i> 礼品兑换券入口</a></li><li class="pay"><a href="###"><i></i> 礼品卡绑定</a></li><li class="mobile"><a href="###"><i></i> 手机易果 <s></s></a><div class="con"><div class="item"><img src="../images/main/qrcode_app.jpg" alt=""> <span>扫一扫下载APP</span></div><div class="item"><img src="../images/main/qrcode_wechat.jpg" alt=""> <span>易果生鲜微信</span></div></div></li><li class="myyiguo"><a href="###"><i></i> 我的易果 <s></s></a><div class="con"><a href="###">我的订单</a> <a href="###">我的优惠券</a> <a href="###">我的收藏</a> <a href="###">我的悠币</a> <a href="###">我的退换货</a> <a href="###">预存款查询</a> <a href="###">立即充值</a></div></li><li id="_logout" class="logout"><a href="###">[退出]</a></li><li id="_loginname"><a href="###"></a></li><li id="_register"><a href="###">[注册]</a></li><li id="_login"><a href="###">[登录]</a></li></ul></div></div><div class="header clearfix"><div class="wrap"><div class="logo"><a href="###"></a></div></div></div><div class="car"><div class="wrap"><div class="car-none"><p><b>购物车是空的，去买点东西吧！ <a href="main.html">继续逛逛>></a></b></p></div><div class="car-alert"><h2>我的购物车</h2><a href="main.html" class="on-shopping">继续购物 > ></a></div><div class="shopcart"></div></div></div><footer class="footer"><div class="wrap"><dl class="col1"><dt>新手指南</dt><dd><p><a href="###">用户注册</a></p><p><a href="###">购物流程</a></p><p><a href="###">订购方式</a></p><p><a href="###">悠币说明</a></p><p><a href="###">会员等级</a></p></dd></dl><dl class="col2"><dt>付款方式</dt><dd><p><a href="###">支付方式</a></p><p><a href="###">礼品卡章程</a></p><p><a href="###">优惠代码</a></p><p><a href="###">卡券购买章程</a></p></dd></dl><dl class="col3"><dt>配送方式</dt><dd><p><a href="###">配送运费</a></p><p><a href="###">时间及范围</a></p></dd></dl><dl class="col4"><dt>售后服务</dt><dd><p><a href="###">退换货政策</a></p><p><a href="###">退换货流程</a></p><p><a href="###">常见问题</a></p><p><a href="###">投诉与建议</a></p></dd></dl><dl class="col5"><dt>关于我们</dt><dd><p><a href="###">公司介绍</a></p><p><a href="###">联系我们</a></p><p><a href="###">业务合作</a></p><p><a href="###">诚信举报</a></p><p><a href="###">用户协议</a></p><p><a href="###">隐私协议</a></p></dd></dl><div class="service"><span>客服热线 400-000-7788 企业采购或团购，请转2号键咨询</span> <span>周一至周日 9:00-21:00</span></div><div class="copyright"><p>所有图片均受著作权保护，未经许可任何单位与个人不得使用、复制、转载、摘编，违者必究法律责任。</p><p>沪ICP备09008015号 Copyright © 2005-2019 版权所有</p><p class="authentication"><a href="###"><img src="../images/main/ordermeal.png" alt=""></a><a href="###"><img src="../images/main/report.png" alt=""></a><a href="###"><img src="../images/main/wxb.png" alt=""></a><a href="###"><img src="../images/reg/153685368061665897_121x29.png" alt=""></a><a href="###"><img src="../images/reg/footer_copy.jpg" alt=""></a><a href="###"><img src="../images/reg/ghs.png" alt=""></a><span>沪公网安备 31010502000002</span></p></div></div></footer></div></body><script src="../js/common.js"></script><script src="../js/shopping_cart.js"></script><script>cart_main();
+    ajax({
+        type: 'get',
+        url: '../api/shopcart.php',
+        success: str => {
+            cart_init(str, {
+                img: 'imgurl',
+                desInfo: 'goodsname',
+                goodsId: "id"
+            });
+            cart_bind((listid) => {
+                ajax({
+                    type: 'get',
+                    url: '../api/delcart.php',
+                    data : {
+                        listid
+                    },
+                    success : str =>{
+                        console.log(str);
+                    }
+                });
+            })
+        }
+    });</script><script>let _login = document.getElementById('_login');
+    let _register = document.getElementById('_register');
+    let data = decodeURI(location.search.slice(1));
+
+    function update() {
+        let data = getcookie('tel');
+        if (data) {
+            _login.innerHTML = '<a href="###">' + data + '</a>';
+            _register.innerHTML = '<a href="###">退出</a>';
+        } else {
+            _login.innerHTML = '<a href="login.html">登录</a>';
+            _register.innerHTML = '<a href="reg.html">注册</a>';
+        }
+    }
+
+    update();
+
+    document.onclick = ev => {
+        if (ev.target.innerHTML == '退出') {
+            alert('退出成功');
+            removeCookie('tel');
+            removeCookie('url');
+        } else if (ev.target.innerHTML == '登陆') {
+            location.href = 'login.html';
+        }
+        update();
+    }</script></html>

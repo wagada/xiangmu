@@ -1,0 +1,26 @@
+#main-con input {
+    width: 130px;
+    height: 40px;
+    background-color: #fff;
+}
+
+#main-con input.active {
+    border: 1px solid #d4d4d4;
+    border-bottom: 2px solid #fff;
+    background: url(../images/detail/product.png) no-repeat -33px -58px #fff;
+}
+
+#main-con .con {
+    width: 100%;
+    height: 100%;
+    border: 1px solid #d4d4d4;
+    box-sizing: border-box;
+    padding: 24px;
+    display: none;
+}
+
+#main-con .con img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 10px;
+}
